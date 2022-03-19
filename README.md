@@ -4,9 +4,10 @@
 
 **Hikari** is one of my extension project. It is included as:
 
-- Hikari Discord Bot (Eris)
-- Hikari Web (Vue)
-- Hikari API (Express)
+- [Hikari API](https://github.com/reinhello/hikari/tree/master/api) ([Express](https://github.com/expressjs/express))
+- [Hikari Discord Bot](https://github.com/reinhello/hikari/tree/master/bot) ([Eris](https://github.com/abalabahaha/eris))
+- [Hikari Framework](https://github.com/reinhello/hikari/tree/master/framework)
+- [Hikari Web](https://github.com/reinhello/hikari/tree/master/web) ([Vue](https://github.com/vuejs/core))
 
 The API is **NOT** publicly accessible to the community.
 
