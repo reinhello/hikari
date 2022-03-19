@@ -1,0 +1,42 @@
+{
+  "name": "hikari-api",
+  "version": "1.0.0",
+  "description": "The API to integrates with Hikari",
+  "main": "server.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/reinhello/hikari.git"
+  },
+  "keywords": [
+    "hikari",
+    "api",
+    "express",
+    "typescript",
+    "server"
+  ],
+  "author": "Reinhardt",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/reinhello/hikari/issues"
+  },
+  "homepage": "https://github.com/reinhello/hikari#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "core-js": "^3.21.1",
+    "express": "^4.17.3",
+    "express-rate-limit": "^6.3.0",
+    "express-session": "^1.17.2",
+    "memorystore": "^1.6.7",
+    "passport": "^0.5.2",
+    "passport-discord": "^0.1.4"
+  },
+  "devDependencies": {
+    "ts-node": "^10.7.0",
+    "ts-node-dev": "^1.1.8",
+    "tslib": "^2.3.1",
+    "typescript": "^4.6.2"
+  }
+}
