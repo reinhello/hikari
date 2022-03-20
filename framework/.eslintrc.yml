@@ -3,7 +3,8 @@ env:
   es6: true
   node: true
 plugins:
-  - "sort-class-members"
+  - sort-keys-fix
+  - sort-imports-es6-autofix
 extends:
   - eslint:recommended
   - plugin:@typescript-eslint/eslint-recommended
@@ -52,26 +53,8 @@ rules:
   semi:
     - 2
     - always
-  sort-class-members/sort-class-members:
+  sort-keys:
     - 2
-    - order:
-        - "[screaming-snake-case-static-properties]"
-        - "[alphabetical-properties]"
-        - constructor
-        - "[alphabetical-getters]"
-        - "[alphabetical-methods]"
-        - "on"
-        - "[everything-else]"
-      groups:
-        screaming-snake-case-static-properties:
-          - name: "/^[A-Z_0-9]+$/"
-            type: property
-        alphabetical-properties:
-          - type: property
-            sort: alphabetical
-        alphabetical-getters:
-          - kind: get
-            sort: alphabetical
-        alphabetical-methods:
-          - type: method
-            sort: alphabetical
+    - asc
+  sort-keys-fix/sort-keys-fix:
+    - 2
