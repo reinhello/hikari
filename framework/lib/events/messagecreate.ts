@@ -1,11 +1,15 @@
-import { Message, TextableChannel } from "eris";
 import { Event } from "../interfaces";
 import { Logger } from "../util";
+import { Message, TextableChannel } from "eris";
+import { GuildModel } from "../models";
 
 export const event: Event = {
     name: "messageCreate",
-    run: (client, message: Message<TextableChannel>) => {
-        if (!message.content.startsWith(client.config.BOT.PREFIX) || message.author.bot) return;
+    run: async (client, message: Message<TextableChannel>) => {
+        const model = GuildModel.createModel(client.database);
+        const guildData = await model.findOne({ id: message.guildID });
+
+        if (!message.content.startsWith(guildData.settings.prefix) || message.author.bot) return;
 
         const messageArray = message.content.split(" ");
         const args = messageArray.slice(1);
@@ -18,8 +22,8 @@ export const event: Event = {
         if (command.adminOnly && !client.config.BOT.ADMIN.includes(message.author.id)) return;
 
         if (command) {
-            logger.info({ type: "INFO", title: "COMMANDS", subTitle: "HikariFramework::MessageHandler", message: `${message.author.username}#${message.author.discriminator} (${message.author.id}) Runs ${command.name} In ${message.member.guild.name} (${message.guildID})` });
-            return command.run({ client, message, args });
+            logger.info({ message: `${message.author.username}#${message.author.discriminator} (${message.author.id}) Runs ${command.name} In ${message.member.guild.name} (${message.guildID})`, subTitle: "HikariFramework::MessageHandler", title: "COMMANDS", type: "INFO" });
+            return command.run({ args, client, message });
         }
     }
 };
