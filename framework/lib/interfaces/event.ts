@@ -1,5 +1,5 @@
-import { HikariClient } from "../client";
 import { ClientEvents } from "eris";
+import { HikariClient } from "../client";
 
 interface EventRun {
     (client: HikariClient, ...args: any);

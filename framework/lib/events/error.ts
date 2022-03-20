@@ -6,6 +6,6 @@ export const event: Event = {
     run: (client, err: string, id: number) => {
         const logger = new Logger();
 
-        logger.error({ type: "ERROR", title: "CLIENT ERROR", subTitle: "HikariFramework::Gateway", message: `Shard ${id ? id : "N/A"}:${err}`});
+        logger.error({ message: `Shard ${id ? id : "N/A"}:${err}`, subTitle: "HikariFramework::Gateway", title: "CLIENT ERROR", type: "ERROR" });
     }
-}
+};
