@@ -1,6 +1,8 @@
 import { ActivityPartial, BotActivityType, Client, Status } from "eris";
 import { Collection } from "./util";
 import { Command, Config, Event } from "./interfaces";
+import { Connection } from "mongoose";
+import { HikariDatabase } from "./database";
 import { join } from "path";
 import { readdirSync } from "fs";
 
@@ -16,6 +18,8 @@ export class HikariClient extends Client {
 
     public config: Config;
 
+    public database: Connection;
+
     public events = new Collection<Event>();
 
     public initAllEvents() {
@@ -27,6 +31,7 @@ export class HikariClient extends Client {
 
     public initClient(options: InitClientOptions) {
         this.connect();
+        this.database = new HikariDatabase(`mongodb+srv://${this.config.MONGODB.HOST}/${this.config.MONGODB.NAME}`).connect();
 
         if (options.presence) {
             this.editStatus(options.presence.status, options.presence.activities);
