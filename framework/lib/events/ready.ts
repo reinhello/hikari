@@ -7,7 +7,7 @@ export const event: Event = {
         const logger = new Logger();
 
         if (client.ready) {
-            logger.info({ type: "INFO", title: "CLIENT READY", subTitle: "HikariFramework::Events", message: `${client.user.username}#${client.user.discriminator} Connected` });
+            logger.info({ type: "INFO", title: "CLIENT READY", subTitle: "HikariFramework::Gateway", message: `${client.user.username}#${client.user.discriminator} Connected` });
         }
     }
 };
