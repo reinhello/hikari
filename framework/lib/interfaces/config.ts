@@ -14,7 +14,13 @@ interface ConfigBot {
     TOKEN: string;
 }
 
+interface ConfigMongoDB {
+    NAME: string;
+    HOST: string;
+}
+
 export interface Config {
     API: ConfigAPI;
     BOT: ConfigBot;
+    MONGODB: ConfigMongoDB;
 }
