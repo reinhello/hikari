@@ -10,5 +10,9 @@
         "ADMIN": ["Your Discord user ID"],
         "PREFIX": "h!",
         "TOKEN": "Your Discord bot token"
+    },
+    "MONGODB": {
+        "NAME": "hikari",
+        "HOST": "localhost:27017"
     }
 }
