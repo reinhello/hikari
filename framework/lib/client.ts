@@ -20,6 +20,7 @@ export class HikariClient extends Client {
 
     public initAllEvents() {
         this.initCommands();
+        this.initErrorEvent();
         this.initMessageCreateEvent();
         this.initReadyEvent();
     }
@@ -44,6 +45,13 @@ export class HikariClient extends Client {
                 this.commands.set(command.name, command);
             }
         });
+    }
+
+    public async initErrorEvent() {
+        const path = join(__dirname, "events", "error.js");
+        const { event } = await import(path);
+
+        this.on(event.name, event.run.bind(null, this));
     }
 
     public async initMessageCreateEvent() {
