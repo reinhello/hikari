@@ -1,7 +1,7 @@
 import { Event } from "../interfaces";
 import { GuildModel } from "../models";
 import { Logger } from "../util";
-import { HikariMongoModel } from "../commands";
+import { HikariMongoModels } from "../commands";
 
 export const event: Event = {
     name: "ready",
@@ -24,7 +24,7 @@ export const event: Event = {
             const model = GuildModel.createModel(client.database);
 
             if (model.findOne({ id: guilds[i] } )) {
-                HikariMongoModel.createGuildModel(client.database, {
+                HikariMongoModels.createGuildModel(client.database, {
                     createdAt: new Date(),
                     id: guilds[i],
                     name: client.guilds.get(guilds[i]).name,
