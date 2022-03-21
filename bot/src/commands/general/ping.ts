@@ -1,6 +1,6 @@
-import { HikariCommand, Interfaces } from "hikari-framework";
+import { HikariCommand, HikariInterfaces } from "hikari-framework";
 
-export const command: Interfaces.Command = {
+export const command: HikariInterfaces.Command = {
     name: "ping",
     run: async ({ message }) => {
         HikariCommand.pingCommand(message);
