@@ -1,6 +1,7 @@
 interface ConfigAPI {
     BASE_URL: string;
     DISCORD_AUTH: ConfigAPIDiscordAuth;
+    SESSION_SECRET: string;
 }
 
 interface ConfigAPIDiscordAuth {
