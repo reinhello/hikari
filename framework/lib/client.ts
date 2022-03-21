@@ -27,6 +27,7 @@ export class HikariClient extends Client {
         this.initErrorEvent();
         this.initMessageCreateEvent();
         this.initReadyEvent();
+        this.initShardReadyEvent();
     }
 
     public initClient(options: InitClientOptions) {
@@ -68,6 +69,13 @@ export class HikariClient extends Client {
 
     public async initReadyEvent() {
         const path = join(__dirname, "events", "ready.js");
+        const { event } = await import(path);
+
+        this.on(event.name, event.run.bind(null, this));
+    }
+
+    public async initShardReadyEvent() {
+        const path = join(__dirname, "events", "shardpreready.js");
         const { event } = await import(path);
 
         this.on(event.name, event.run.bind(null, this));
