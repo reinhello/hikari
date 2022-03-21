@@ -1,4 +1,4 @@
-import { HikariClient, Interfaces } from "hikari-framework";
+import { HikariClient, HikariInterfaces } from "hikari-framework";
 import * as Config from "../../config/config.json";
 
 const client = new HikariClient(`Bot ${Config.BOT.TOKEN}`, {
@@ -10,7 +10,7 @@ const client = new HikariClient(`Bot ${Config.BOT.TOKEN}`, {
     autoreconnect: true
 });
 
-client.config = Config as Interfaces.Config;
+client.config = Config as HikariInterfaces.Config;
 client.initClient({
     presence: {
         status: "dnd",
