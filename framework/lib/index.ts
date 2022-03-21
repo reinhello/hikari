@@ -1,6 +1,6 @@
 export * from "./client";
 export * from "./commands";
 export * from "./database";
-export * as Interfaces from "./interfaces";
-export * from "./models";
-export * as Utils from "./util";
+export * as HikariInterfaces from "./interfaces";
+export * as HikariModels from "./models";
+export * as HikariUtils from "./util";
