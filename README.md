@@ -45,7 +45,7 @@ npm start
 
 cd ../web
 npm ci
-npm start
+npm run serve
 ```
 
 This including running both the API and the frontend web. The API will be running on port 80 and the Vue server will be running on port 8080.
